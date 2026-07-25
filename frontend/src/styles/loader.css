@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Regular';
+    src: url('../assets/extras/Shilmaz-Regular.otf') format('opentype');
+}
+
+.parentloader{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom right, #ffdcdc, #ffdcdc, #ffebdc, #fff6dc, #fffedc, #fff6dc, #ffebdc);
+    background-size: 300% 300%;
+    animation: gradientShift 4s ease-in-out infinite ;
+    color: maroon;
+    font-family: 'Regular', sans-serif;
+    position: relative;
+}
+
+@keyframes gradientShift {
+   0%{
+    background-position: 0% 0%;
+   }
+   30%{
+    background-position: 40% 40%;
+   }
+    50%{
+    background-position: 70% 70%;
+    }
+    70%{
+    background-position: 100% 100%;
+    }
+    80%{
+    background-position: 50% 50%;
+    }
+    90%{
+    background-position: 20% 20%;
+    }
+    100%{
+    background-position: 0% 0%;
+    }
+}
+.head{
+    width: 380px;
+    font-size: 5rem;
+    font-style: italic;
+    font-family: 'Regular';
+    color: transparent;
+    background: linear-gradient(to bottom right, #6c0202,#ff0808,#ffb6b688, #a60101, #ff0808);
+    background-size: 300% 300%;
+    animation: gradientShift 4.5s ease-in-out ;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+.line{
+    width: 100vw;
+    height: 0.5px;
+    background: #a40606;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.fill{
+    height: 1px;
+    background: linear-gradient(to bottom right, #ffdcdc, #ff0808, #ff0808);
+    position: absolute;
+    left: 0;
+    top: -1px;
+    transition: width 0.1s linear;
+}
+
+.loadnum{
+    width: 13%;
+    font-style: italic;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    font-size: 4rem;
+    color: #9e0202;
+}
+
