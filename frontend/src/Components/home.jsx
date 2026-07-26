@@ -27,19 +27,24 @@ const Home = () => {
     'Womens',
     'Kids',
     'Ages',
-    'Gen-zs',
-    'Millenials',
     'Celebrations',
     'Gifts',
     'Accessories',
-    'Footwears',
   ]
 
   return (
     <div className='parenthome'>
       <div className='page-shell'>
         <header className='home-header' ref={headerRef}>
+          <div className='promo-strip' aria-label='announcement bar'>
+            <div className='promo-track'>
+              <span>Free shipping on orders above ₹999 • New arrivals every week • Festive collections now live</span>
+              <span>Free shipping on orders above ₹999 • New arrivals every week • Festive collections now live</span>
+            </div>
+          </div>
+
           <div className='top-bar'>
+            
             <div className='top-bar-left'>
               <div className="logo"></div>
               <h4 className='brand'>Mangalms</h4>
