@@ -10,4 +10,17 @@ html, body {
 body{
   background-color: black;
   color: white;
+  overflow: hidden;
+}
+.loader{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
 }

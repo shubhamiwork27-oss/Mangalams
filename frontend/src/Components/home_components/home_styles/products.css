@@ -1,0 +1,111 @@
+.products-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.products-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.2rem;
+}
+
+.products-head h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: #2f1a1a;
+}
+
+.products-head a {
+    color: maroon;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.1rem;
+}
+
+.product-card {
+    width: 100%;
+    min-height: 360px;
+    background: #fff;
+    border: 1px solid #e8d0d0;
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+}
+
+.product-badge {
+    position: absolute;
+    top: 0.8rem;
+    left: 0.8rem;
+    background: #fce8e8;
+    color: maroon;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.product-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #ffe8df, #ffd8d8);
+    font-size: 3rem;
+    margin-top: 1.25rem;
+}
+
+.product-info {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.product-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #1f1a1a;
+}
+
+.product-price {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: maroon;
+}
+
+.product-rating {
+    margin: 0;
+    color: #f59e0b;
+    font-size: 0.95rem;
+}
+
+.product-card button {
+    margin-top: auto;
+    border: none;
+    background: maroon;
+    color: #fff;
+    border-radius: 999px;
+    padding: 0.7rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}

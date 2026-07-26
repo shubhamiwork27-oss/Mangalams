@@ -1,0 +1,21 @@
+.home-filter {
+    width: 100%;
+    padding: 0.9rem 1.25rem 0;
+    box-sizing: border-box;
+}
+
+.filter-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.filter-pill {
+    padding: 0.55rem 0.95rem;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #e2c6c6;
+    color: #7b1f1f;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}

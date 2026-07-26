@@ -1,54 +1,51 @@
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+// loading.jsx
+import { useEffect, useRef, useState } from 'react'
+import { gsap } from 'gsap'
 import '../styles/loader.css'
 
-const Loading = () => {
+const Loading = ({ onLoaded }) => {
   const [percent, setPercent] = useState(0)
-  const [done, setDone] = useState(false)
-  const navigate = useNavigate()
+  const loaderRef = useRef(null)
+  const fillRef = useRef(null)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setPercent((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval)
-          setTimeout(() => setDone(true), 400)
-          return 100
-        }
-        return prev + 1
-      })
-    }, 50)
+    const counter = { val: 0 }
+    const countTween = gsap.to(counter, {
+      val: 100,
+      duration: 2.5,
+      ease: 'power3.inOut',
+      onUpdate: () => {
+        const nextPercent = Math.round(counter.val)
+        setPercent(nextPercent)
 
-    return () => clearInterval(interval)
-  }, [])
+        if (fillRef.current) {
+          fillRef.current.style.width = `${nextPercent}%`
+        }
+      },
+      onComplete: () => {
+        gsap.to(loaderRef.current, {
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.inOut',
+          onComplete: () => onLoaded?.(),
+        })
+      },
+    })
+
+    return () => countTween.kill()
+  }, [onLoaded])
+
+  const clampedPercent = Math.min(100, Math.max(0, percent))
 
   return (
-    <AnimatePresence onExitComplete={() => navigate('/')}>
-      {!done && (
-        <motion.div
-          className='parentloader'
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className='head'>Mangalms</h1>
+    <div className='parentloader' ref={loaderRef}>
+      <h1 className='head'>Mangalms</h1>
 
-          <div className="line">
-            <motion.div
-              className="fill"
-              style={{ width: `${percent}%` }}
-            ></motion.div>
-            <h1 className='loadnum'>{percent}%</h1>
-          </div>
-
-          <motion.div
-            className="wipe"
-            animate={done ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-          />
-        </motion.div>
-      )}
-    </AnimatePresence>
+      <div className='line'>
+        <div className='fill' ref={fillRef} style={{ width: `${clampedPercent}%` }} />
+        <h1 className='loadnum' style={{ left: `${clampedPercent}%` }}>{clampedPercent}%</h1>
+      </div>
+    </div>
   )
 }
 
