@@ -4,6 +4,16 @@ import { gsap } from 'gsap'
 import '../styles/home.css'
 import Home_content from './home_components/home_content'
 
+//components import 
+import Cart from '../assets/icons/cart.png'
+import More from '../assets/icons/more.png'
+import User from '../assets/icons/user.png'
+
+
+
+
+
+
 const Home = () => {
   const headerRef = useRef(null)
   const mainRef = useRef(null)
@@ -54,11 +64,20 @@ const Home = () => {
           </div>
             <div className='top-bar-right'>
               <button className='top-action'>
-                <div className="logosp" ></div>  Account</button>
-              <button className='top-action'>More</button>
+                <div className="logosp" >
+                  <img src={User} alt="" className='icon'/>
+                  </div>  
+                  <h4>Account</h4></button>
+              <button className='top-action'>
+                <div className="logosp">
+                  <img src={More} alt="" className='icon'/>
+                </div>
+                <h4>More</h4></button>
               <button className='top-action cart'>
-                <div className="logosp"></div>
-                Cart</button>
+                <div className="logosp">
+                  <img src={Cart} alt="" className='icon' />
+                </div>
+                <h4>Cart</h4></button>
             </div>
           </div>
 

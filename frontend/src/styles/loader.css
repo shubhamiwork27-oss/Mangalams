@@ -13,12 +13,24 @@
     padding: 2rem;
     overflow: hidden;
     box-sizing: border-box;
-    background: linear-gradient(to bottom right, #fff7f3, #ffece4, #fef4e8);
     color: maroon;
     font-family: 'Regular';
     position: relative;
+    animation: colors 6s ease-in-out infinite alternate;
+    background: linear-gradient(to bottom right, #ffb9dc, #ffece4, #fef4e8);
+    background-size: 200% 200%;
 }
-
+@keyframes colors {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
 .loader-overlay {
     position: absolute;
     inset: 0;
