@@ -11,9 +11,6 @@ import User from '../assets/icons/user.png'
 
 
 
-
-
-
 const Home = () => {
   const headerRef = useRef(null)
   const mainRef = useRef(null)

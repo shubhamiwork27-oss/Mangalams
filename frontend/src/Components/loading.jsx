@@ -1,6 +1,7 @@
 // loading.jsx
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import ShinyText from './ShinyText'
 import '../styles/loader.css'
 
 const Loading = ({ onLoaded }) => {
@@ -39,7 +40,18 @@ const Loading = ({ onLoaded }) => {
 
   return (
     <div className='parentloader' ref={loaderRef}>
-      <h1 className='head'>Mangalms</h1>
+      <ShinyText
+        text='Mangalms'
+        className='loading-text'
+        speed={3}
+        delay={0}
+        color='#b70101'
+        shineColor='#ffffff'
+        spread={120}
+        direction='left'
+        yoyo={false}
+        pauseOnHover={false}
+      />
 
       <div className='line'>
         <div className='fill' ref={fillRef} style={{ width: `${clampedPercent}%` }} />

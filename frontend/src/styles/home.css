@@ -10,7 +10,7 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background: radial-gradient(circle at top, #ffe4e4 10%, #ffe1e1fe 55%, #fff4ef 100%);
+    background: radial-gradient(circle at top, #f4e6e6 10%, #f9e8c7 85%, #fff4ef 100%);
     overflow-x: hidden;
 }
 
@@ -121,7 +121,7 @@
 .category-pill {
     border: none;
     border-radius: 999px;
-    background:linear-gradient(to bottom ,#ffb4b446 10%,#f7ebe6 100%,#ffb4b44f 100%);
+    background:linear-gradient(to bottom  right,#ffb4b446 10%,#fff 100%,#ffb4b44f 100%);
     color: #5a2b27;
     display: flex;
     align-items: center;

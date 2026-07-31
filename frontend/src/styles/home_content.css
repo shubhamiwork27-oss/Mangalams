@@ -30,8 +30,8 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 0.9rem;
-    background: #fff;
-    border: 1px solid rgba(190, 131, 121, 0.18);
+    background: radial-gradient(circle at top, #f4e6e624 60%, #f9e8c7 100%);
+    border: 1px solid #fff4f364;
 }
 
 .hero-primary .hero-title {

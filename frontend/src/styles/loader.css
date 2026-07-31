@@ -48,39 +48,12 @@
     pointer-events: none;
 }
 
-.head {
-    max-width: 100%;
+.loading-text {
+    display: inline-block;
     font-size: clamp(3rem, 7vw, 5rem);
     font-style: italic;
-    color: transparent;
-    background: linear-gradient(to bottom right, #6c0202, #ff0808, #a60101);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
     text-align: center;
-    position: relative;
-    z-index: 2;
-    isolation: isolate;
-}
-
-.head::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(110deg, transparent 0%, #ffffffa0 35%, transparent 75%);
-    transform: translateX(-100%) skewX(-18deg);
-    animation: shimmer 2.8s ease-in-out infinite;
-    pointer-events: none;
-    mix-blend-mode: screen;
-}
-
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%) skewX(-18deg);
-    }
-    100% {
-        transform: translateX(100%) skewX(-18deg);
-    }
+    margin-bottom: 1.25rem;
 }
 
 .line {
