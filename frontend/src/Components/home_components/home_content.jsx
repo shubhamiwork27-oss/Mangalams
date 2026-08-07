@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import '../../styles/home_content.css'
 import Products from './products'
+import Carousel from './Carousel'
 
 const HomeContent = () => {
   const heroRef = useRef(null)
@@ -41,18 +42,14 @@ const HomeContent = () => {
     <div className='homecontent-inner'>
       <section className='hero-section' ref={heroRef}>
         <div className='hero-card hero-primary'>
-          <div>
-            <img src="" alt="" />
-          </div>
-        </div>
-
-        <div className='hero-row'>
-          <div className='hero-card hero-small'>
-            <img src="" alt="" />
-          </div>
-          <div className='hero-card hero-small'>
-            <img src="" alt="" />
-          </div>
+          <Carousel
+            baseWidth={1100}
+            autoplay
+            autoplayDelay={2500}
+            pauseOnHover
+            loop
+            round={false}
+          />
         </div>
       </section>
 
@@ -188,25 +185,7 @@ const HomeContent = () => {
         </div>
       </section>
 
-      <footer className='page-footer'>
-        <div className='footer-inner'>
-          <div>
-            <h4>Mangalms</h4>
-            <p>Luxury curated products made for modern heritage shoppers.</p>
-          </div>
-          <div>
-            <p><strong>Customer Care</strong></p>
-            <p>help@mangalms.com</p>
-            <p>+91 98765 43210</p>
-          </div>
-          <div>
-            <p><strong>Quick Links</strong></p>
-            <p>About</p>
-            <p>Contact</p>
-          </div>
-        </div>
-        <p className='footer-copy'>© 2024 Mangalms Luxury Boutique. All rights reserved.</p>
-      </footer>
+    
     </div>
   )
 }

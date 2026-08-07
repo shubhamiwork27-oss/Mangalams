@@ -41,7 +41,7 @@ const Loading = ({ onLoaded }) => {
   return (
     <div className='parentloader' ref={loaderRef}>
       <ShinyText
-        text='Mangalms'
+        text='Mangalams'
         className='loading-text'
         speed={3}
         delay={0}

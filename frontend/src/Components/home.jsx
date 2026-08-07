@@ -54,7 +54,7 @@ const Home = () => {
             
             <div className='top-bar-left'>
               <div className="logo"></div>
-              <h4 className='brand'>Mangalms</h4>
+              <h4 className='brand'>Mangalams</h4>
             </div>
             <div className='search-bar'>
             <input className='search-input' placeholder='Search for Products, Brands and More' />
@@ -92,6 +92,26 @@ const Home = () => {
         <main className='home-main' ref={mainRef}>
           <HomeContent />
         </main>
+
+        <footer className='page-footer'>
+          <div className='footer-inner'>
+            <div>
+              <h4>Mangalms</h4>
+              <p>Luxury curated products made for modern heritage shoppers.</p>
+            </div>
+            <div>
+              <p><strong>Customer Care</strong></p>
+              <p>help@mangalms.com</p>
+              <p>+91 98765 43210</p>
+            </div>
+            <div>
+              <p><strong>Quick Links</strong></p>
+              <p>About</p>
+              <p>Contact</p>
+            </div>
+          </div>
+          <p className='footer-copy'>© 2024 Mangalms Luxury Boutique. All rights reserved.</p>
+        </footer>
       </div>
     </div>
   )

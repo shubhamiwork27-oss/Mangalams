@@ -1,0 +1,114 @@
+.carousel-root {
+  width: 100%;
+  height: 420px;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  align-items: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.carousel-item {
+  position: relative;
+  display: flex;
+  flex: 0 0 100%;
+  min-width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  border: none;
+  border-radius: 20px;
+  background-color: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.30s ease, box-shadow 0.32s ease;
+}
+
+.carousel-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid white;
+  border-radius: 20px;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.carousel-item.round .carousel-slide-image {
+  border-radius: 50%;
+}
+
+.carousel-dots-wrapper {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff9d;
+  border-radius: 999px;
+  padding: 8px 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 9px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #c62f2f;
+  background: rgba(125, 30, 30, 0);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  width: 10px;
+  height: 10px;
+  background: #7d1e1e;
+  border-color: #fffefecc;
+  transform: scale(1.2);
+}
+
+.carousel-dot:focus-visible {
+  outline: 2px solid rgba(125, 30, 30, 0.6);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .carousel-root {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-root {
+    min-height: 260px;
+  }
+
+  .carousel-track {
+    gap: 12px;
+  }
+
+  .carousel-dots-wrapper {
+    right: 12px;
+    bottom: 12px;
+    padding: 6px 8px;
+  }
+}

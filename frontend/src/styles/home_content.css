@@ -15,8 +15,8 @@
 }
 
 .hero-section {
-    display: grid;
-    grid-template-columns: 2fr 1.7fr;
+    display: flex;
+    flex-direction: column;
     gap: 0.7rem;
     align-items: stretch;
     min-height: 450px;
@@ -24,14 +24,20 @@
 }
 
 .hero-card {
-    border-radius: 1.6rem;
-    padding: 1.50rem 1.5rem;
+    border-radius: 2rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: stretch;
     gap: 0.9rem;
-    background: radial-gradient(circle at top, #f4e6e624 60%, #ddc7f9 100%);
-    border: 1px solid #fff4f364;
+    background: #ead1ff;
+    border: 3px solid #f9f9f9;
+    overflow: hidden;
+}
+
+.hero-carousel-wrapper {
+    width: 100%;
+    min-height: 460px;
 }
 
 .hero-primary .hero-title {
@@ -66,30 +72,6 @@
     font-style: italic;
     border-radius: 999px;
     font-weight: 700;
-}
-
-.hero-row {
-    display: grid;
-    gap: 0.9rem;
-}
-
-.hero-small {
-    min-height: 180px;
-    background: #fff;
-    border: 1px solid #ecd6d0;
-    border-radius: 1.35rem;
-    padding: 1.2rem 1.25rem;
-}
-
-.hero-small-title {
-    margin: 0 0 0.5rem;
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-.hero-small-sub {
-    margin: 0;
-    color: #7b5049;
 }
 
 .featured-section,
@@ -324,30 +306,7 @@
     }
 }
 
-.footer-inner {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.25rem;
-}
 
-.page-footer h4 {
-    margin:0 0 0.6rem;
-    color:#471515;
-}
-
-.page-footer p {
-    margin: 0.35rem 0;
-    color: #5e3e3a;
-    line-height: 1.6;
-}
-
-.footer-copy {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #8b6767;
-    text-align: center;
-}
 
 @media (max-width: 980px) {
     .hero-section {
@@ -357,6 +316,10 @@
     .featured-grid,
     .quick-links {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-carousel-wrapper {
+        min-height: 380px;
     }
 }
 
@@ -379,4 +342,9 @@
     .quick-card {
         padding: 1.15rem;
     }
+
+    .hero-carousel-wrapper {
+        min-height: 280px;
+    }
 }
+
