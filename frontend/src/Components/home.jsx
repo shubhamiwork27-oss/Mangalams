@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import '../styles/home.css'
-import Home_content from './home_components/home_content'
+import HomeContent from './home_components/home_content'
 
 //components import 
 import Cart from '../assets/icons/cart.png'
@@ -90,7 +90,7 @@ const Home = () => {
         </header>
 
         <main className='home-main' ref={mainRef}>
-          <Home_content />
+          <HomeContent />
         </main>
       </div>
     </div>

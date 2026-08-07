@@ -10,14 +10,14 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background: radial-gradient(circle at top, #f4e6e6 10%, #f9e8c7 85%, #fff4ef 100%);
+    background: radial-gradient(circle at top, #fff7f1, #f5e7dc 65%, #e5d1c1 100%);
     overflow-x: hidden;
 }
 
 .page-shell {
     width: min(1380px, 100%);
     margin: 1rem auto 1.25rem;
-    padding: 1rem 1.5rem 1.5rem;
+    padding: 1rem 1.5rem 2.5rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -30,10 +30,10 @@
     flex-direction: column;
     gap: 0.8rem;
     padding: 1.15rem 1.35rem 1.2rem;
-    background: #fff9f4;
-    border: 1px solid #e38f8f;
+    background: #fff2eb;
+    border: 1px solid #d8b1a9;
     border-radius: 2rem;
-    box-shadow: 0 24px 45px rgba(112, 41, 27, 0.08);
+    box-shadow: 0 24px 45px rgba(136, 60, 50, 0.12);
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -41,7 +41,7 @@
 .promo-strip {
     width: calc(100% + 2.7rem);
     margin: -1.15rem -1.35rem 0.8rem;
-    background: linear-gradient(90deg, #7a1212 0%, #d51616 50%, #6d1010 100%);
+    background: linear-gradient(90deg, #7a1212 0%, #b8443d 50%, #5f0e0f 100%);
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     overflow: hidden;
@@ -98,6 +98,9 @@
 .top-bar-right {
     justify-self: end;
 }
+.home-header {
+    background-color: #fdf7ffaf;
+}
 
 .logo{
     width: clamp(42px, 3vw + 18px, 56px);
@@ -105,7 +108,7 @@
     min-width: 42px;
     min-height: 42px;
     border-radius: 999px;
-    border: 1px solid maroon;
+    border: 1px solid #7a1212;
     flex-shrink: 0;
 }
 .brand {
@@ -113,7 +116,7 @@
     font-style: italic;
     font-weight: 800;
     font-size: 31px;
-    color: #b70101;
+    color: #8e1010;
 }
 
 .top-pill,
@@ -121,8 +124,8 @@
 .category-pill {
     border: none;
     border-radius: 999px;
-    background:linear-gradient(to bottom  right,#ffb4b446 10%,#fff 100%,#ffb4b44f 100%);
-    color: #5a2b27;
+    background: linear-gradient(to bottom right, #f7e0d9 10%, #fff6f1 100%, #f7e7dd 100%);
+    color: #6b2f2b;
     display: flex;
     align-items: center;
     padding: 0.5rem 0.90rem;
@@ -134,15 +137,15 @@
 .top-pill:hover,
 .category-pill:hover,
 .top-action:hover {
-    background: #f6d9d9;
-    color: #8e0101;
+    background: #f8e0ff;
+    color: #600000;
 }
 
 .top-pill.active,
 .category-pill.active {
- background:#ffe9e9;
- border: 1.5px solid #8e0101;
-color: #8e0101;
+    background: #f9ece9;
+    border: 1.5px solid #7f1212;
+    color: #7f1212;
 }
 
 .top-action {
@@ -197,7 +200,7 @@ color: #8e0101;
 .category-strip {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 1.2rem;
     padding-bottom: 0.25rem;
     overflow-x: auto;
 }
@@ -207,7 +210,7 @@ color: #8e0101;
 }
 
 .category-strip::-webkit-scrollbar-track {
-    background: rgba(247, 235, 228, 0.95);
+    background: #fffffef2;
     border-radius: 999px;
 }
 
@@ -219,16 +222,18 @@ color: #8e0101;
 .category-strip::-webkit-scrollbar-thumb:hover {
     background: rgba(123, 30, 30, 0.7);
 }
-
+.category-pill.active{
+    background-color: #fff;
+}
 .home-main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 0;
+    min-height: 72vh;
     width: 100%;
     box-sizing: border-box;
     gap: 1.5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 }
 
 /* icons */
@@ -270,19 +275,23 @@ color: #8e0101;
     }
 
     .top-bar {
-        grid-template-columns: auto minmax(0, 1fr);
-        align-items: center;
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        gap: 0.75rem;
     }
 
     .top-bar-left,
     .top-bar-right,
     .category-strip {
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
     }
 
     .top-bar-right {
-        justify-self: end;
+        justify-self: stretch;
     }
 
     .brand-chip {

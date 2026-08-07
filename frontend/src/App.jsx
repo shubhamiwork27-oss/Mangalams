@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Lenis from 'lenis'
 import './App.css'
 import Home from './Components/home'
-import Loading from './Components/loading'
+import Loading from './Components/loading_page/loading'
 
 const App = () => {
   const [showLoader, setShowLoader] = useState(true)

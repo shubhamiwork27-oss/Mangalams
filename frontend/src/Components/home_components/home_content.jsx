@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import '../../styles/home_content.css'
 import Products from './products'
 
-const home_content = () => {
+const HomeContent = () => {
   const heroRef = useRef(null)
   const featuredRef = useRef(null)
   const promoRef = useRef(null)
@@ -67,19 +67,28 @@ const home_content = () => {
         <div className='featured-grid'>
           <article className='featured-card'>
             <div className='featured-image'>
-              <span>👞</span>
+              <img
+                src='https://via.placeholder.com/500x400?text=Men%27s+Formal+Shoes'
+                alt="Men's Formal Shoes"
+              />
             </div>
             <p>Men's Formal Shoes</p>
           </article>
           <article className='featured-card'>
             <div className='featured-image'>
-              <span>👟</span>
+              <img
+                src='https://via.placeholder.com/500x400?text=Men%27s+Sports+Shoes'
+                alt="Men's Sports Shoes"
+              />
             </div>
             <p>Men's Sports Shoes</p>
           </article>
           <article className='featured-card future-card'>
             <div className='featured-image'>
-              <span>➡️</span>
+              <img
+                src='https://via.placeholder.com/500x400?text=More+Options'
+                alt='More options'
+              />
             </div>
             <p>More options</p>
           </article>
@@ -96,15 +105,24 @@ const home_content = () => {
         </div>
         <div className='promo-cards'>
           <article className='promo-card'>
-            <span>⚡</span>
+            <img
+              src='https://via.placeholder.com/160x120?text=Flash+Deal'
+              alt='Lightning offers'
+            />
             <p>Lightning offers on daily essentials</p>
           </article>
           <article className='promo-card'>
-            <span>🏷️</span>
+            <img
+              src='https://via.placeholder.com/160x120?text=Cashback'
+              alt='Bank and wallet cashback'
+            />
             <p>Extra savings with bank and wallet cashback</p>
           </article>
           <article className='promo-card'>
-            <span>🚚</span>
+            <img
+              src='https://via.placeholder.com/160x120?text=Express+Delivery'
+              alt='Express delivery'
+            />
             <p>Express delivery across your city in under 24 hours</p>
           </article>
         </div>
@@ -130,8 +148,67 @@ const home_content = () => {
       </section>
 
       <Products />
+
+      <section className='ai-section'>
+        <div className='ai-head'>
+          <div>
+            <p className='featured-label'>AI Recommendations</p>
+            <h3>Handpicked for your style</h3>
+          </div>
+          <button className='view-all'>See All Picks</button>
+        </div>
+        <div className='ai-grid'>
+          <article className='ai-card'>
+            <div className='ai-image'>
+              <img src='https://via.placeholder.com/520x360?text=AI+Pick+1' alt='AI recommended product 1' />
+            </div>
+            <div className='ai-info'>
+              <h4>Artisan Handbag</h4>
+              <p>Curated based on your recent favorites.</p>
+            </div>
+          </article>
+          <article className='ai-card'>
+            <div className='ai-image'>
+              <img src='https://via.placeholder.com/520x360?text=AI+Pick+2' alt='AI recommended product 2' />
+            </div>
+            <div className='ai-info'>
+              <h4>Luxury Watch</h4>
+              <p>Smart style matches picked just for you.</p>
+            </div>
+          </article>
+          <article className='ai-card'>
+            <div className='ai-image'>
+              <img src='https://via.placeholder.com/520x360?text=AI+Pick+3' alt='AI recommended product 3' />
+            </div>
+            <div className='ai-info'>
+              <h4>Festive Jewelry</h4>
+              <p>AI finds the perfect pieces for your celebration.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer className='page-footer'>
+        <div className='footer-inner'>
+          <div>
+            <h4>Mangalms</h4>
+            <p>Luxury curated products made for modern heritage shoppers.</p>
+          </div>
+          <div>
+            <p><strong>Customer Care</strong></p>
+            <p>help@mangalms.com</p>
+            <p>+91 98765 43210</p>
+          </div>
+          <div>
+            <p><strong>Quick Links</strong></p>
+            <p>About</p>
+            <p>Contact</p>
+          </div>
+        </div>
+        <p className='footer-copy'>© 2024 Mangalms Luxury Boutique. All rights reserved.</p>
+      </footer>
     </div>
   )
 }
 
-export default home_content
+export default HomeContent

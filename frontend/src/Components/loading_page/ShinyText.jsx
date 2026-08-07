@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { motion, useMotionValue, useAnimationFrame, useTransform } from 'motion/react'
-import '../styles/ShinyText.css'
+import '../../styles/ShinyText.css'
 
 const ShinyText = ({
   text,

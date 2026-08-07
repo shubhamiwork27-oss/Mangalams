@@ -10,7 +10,7 @@ html, body {
 body{
   background-color: black;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .loader{
   width: 100vw;
@@ -19,7 +19,14 @@ body{
   inset: 0;
   z-index: 9999;
 }
-
+*::-webkit-scrollbar  {
+  background: #fff;
+}
+*::-webkit-scrollbar-thumb{
+  background: #ad0a0ac6;
+  border: 3.5px solid #fff;
+  border-radius: 200px;
+}
 .home {
   width: 100%;
   min-height: 100vh;

@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import ShinyText from './ShinyText'
-import '../styles/loader.css'
+import '../../styles/loader.css'
 
 const Loading = ({ onLoaded }) => {
   const [percent, setPercent] = useState(0)
