@@ -176,7 +176,7 @@ export default function Carousel({
     const { offset, velocity } = info
     const direction =
       offset.x < -DRAG_BUFFER || velocity.x < -VELOCITY_THRESHOLD
-        ? 1
+        ? 2
         : offset.x > DRAG_BUFFER || velocity.x > VELOCITY_THRESHOLD
         ? -1
         : 0

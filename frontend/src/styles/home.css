@@ -117,6 +117,8 @@
     font-weight: 800;
     font-size: 31px;
     color: #8e1010;
+    cursor: pointer;
+
 }
 
 .top-pill,
@@ -252,13 +254,11 @@
 }
 /* footer */
 footer{
-    width: 100%;
+    width: 110%;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    min-height: 360px;
-    background: #fce5ff;
-    border-radius: 2rem;
+    gap: 10rem;
+    min-height: 340px;
     overflow: hidden;
 }
 
@@ -277,8 +277,10 @@ footer{
 
 .footer-inner h4 {
     margin: 0 0 0.75rem;
-    font-size: 1rem;
-    color: #7a1212;
+    font-family: 'Regular';
+    font-style: italic;
+    font-size: 5rem;
+    color: #9b1212;
 }
 
 .footer-inner p {
@@ -286,7 +288,13 @@ footer{
     color: #4a2d2b;
     line-height: 1.65;
 }
+.footer_p span{
+font-style: italic;
+}
 
+.footer_p {
+    font-size: 1.2rem;
+}
 .footer-inner p strong {
     display: block;
     margin-bottom: 0.65rem;
@@ -295,8 +303,8 @@ footer{
 
 .footer-copy {
     margin: 0;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(188, 100, 90, 0.14);
+    padding-top: 1rem;
+    border-top: 1px solid rgba(206, 29, 9, 0.666);
     color: #6b3d3a;
     font-size: 0.95rem;
     text-align: center;

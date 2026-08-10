@@ -96,8 +96,8 @@ const Home = () => {
         <footer className='page-footer'>
           <div className='footer-inner'>
             <div>
-              <h4>Mangalms</h4>
-              <p>Luxury curated products made for modern heritage shoppers.</p>
+              <h4>Mangalams</h4>
+              <p className='footer_p'><span>Traditional products</span> made for<span> Modern INDIA</span>.</p>
             </div>
             <div>
               <p><strong>Customer Care</strong></p>
@@ -110,7 +110,7 @@ const Home = () => {
               <p>Contact</p>
             </div>
           </div>
-          <p className='footer-copy'>© 2024 Mangalms Luxury Boutique. All rights reserved.</p>
+          <p className='footer-copy'>© 2026 Mangalams E-commerce . All rights reserved.</p>
         </footer>
       </div>
     </div>

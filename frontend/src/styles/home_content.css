@@ -30,8 +30,8 @@
     flex-direction: column;
     justify-content: stretch;
     gap: 0.9rem;
-    background: #ead1ff;
-    border: 3px solid #f9f9f9;
+    background: linear-gradient(to bottom right,#a9020256, #fff ,#fff,#fff, #fff , #a9020256);
+    border: 3px solid #fff;
     overflow: hidden;
 }
 

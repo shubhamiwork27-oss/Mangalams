@@ -24,7 +24,8 @@ body{
 }
 *::-webkit-scrollbar-thumb{
   background: #ad0a0ac6;
-  border: 3.5px solid #fff;
+  border: 4px solid #fff;
+  cursor: pointer;
   border-radius: 200px;
 }
 .home {
