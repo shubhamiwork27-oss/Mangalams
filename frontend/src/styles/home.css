@@ -10,7 +10,7 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background: radial-gradient(circle at top, #fff7f1, #f5e7dc 65%, #e5d1c1 100%);
+    background: radial-gradient(circle at top, #f6ebff, #f6ebff 65%, #e5d1c1 100%);
     overflow-x: hidden;
 }
 
@@ -41,7 +41,7 @@
 .promo-strip {
     width: calc(100% + 2.7rem);
     margin: -1.15rem -1.35rem 0.8rem;
-    background: linear-gradient(90deg, #7a1212 0%, #b8443d 50%, #5f0e0f 100%);
+    background: linear-gradient(90deg, #7a1212 0%, #f1716a 50%, #5f0e0f 100%);
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     overflow: hidden;
@@ -99,7 +99,7 @@
     justify-self: end;
 }
 .home-header {
-    background-color: #fdf7ffaf;
+    background-color: #fff;
 }
 
 .logo{

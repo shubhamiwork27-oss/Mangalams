@@ -33,10 +33,10 @@ const Home = () => {
     'Mens',
     'Womens',
     'Kids',
-    'Ages',
     'Celebrations',
     'Gifts',
     'Accessories',
+    'Picks'
   ]
 
   return (

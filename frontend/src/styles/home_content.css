@@ -30,7 +30,7 @@
     flex-direction: column;
     justify-content: stretch;
     gap: 0.9rem;
-    background: linear-gradient(to bottom right,#a9020256, #fff ,#fff,#fff, #fff , #a9020256);
+    background: linear-gradient(to bottom right,#1001e7a3, #fff , #f0b9ff , #e70155a3);
     border: 3px solid #fff;
     overflow: hidden;
 }
