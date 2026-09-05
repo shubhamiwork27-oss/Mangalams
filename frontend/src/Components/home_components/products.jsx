@@ -1,12 +1,34 @@
-import './home_styles/products.css'
+"use client";
+
+import "./home_styles/products.css";
 
 const products = () => {
   const items = [
-    { title: 'Premium Sofa Set', price: '24,999', badge: 'Best seller', image: 'https://via.placeholder.com/560x420?text=Premium+Sofa+Set' },
-    { title: 'Minimal Lamp', price: '3,199', badge: 'New', image: 'https://via.placeholder.com/560x420?text=Minimal+Lamp' },
-    { title: 'Kitchen Organizer', price: '1,899', badge: 'Hot deal', image: 'https://via.placeholder.com/560x420?text=Kitchen+Organizer' },
-    { title: 'Accent Chair', price: '8,499', badge: 'Top rated', image: 'https://via.placeholder.com/560x420?text=Accent+Chair' },
-  ]
+    {
+      title: "Premium Sofa Set",
+      price: "24,999",
+      badge: "Best seller",
+      image: "https://via.placeholder.com/560x420?text=Premium+Sofa+Set",
+    },
+    {
+      title: "Minimal Lamp",
+      price: "3,199",
+      badge: "New",
+      image: "https://via.placeholder.com/560x420?text=Minimal+Lamp",
+    },
+    {
+      title: "Kitchen Organizer",
+      price: "1,899",
+      badge: "Hot deal",
+      image: "https://via.placeholder.com/560x420?text=Kitchen+Organizer",
+    },
+    {
+      title: "Accent Chair",
+      price: "8,499",
+      badge: "Top rated",
+      image: "https://via.placeholder.com/560x420?text=Accent+Chair",
+    },
+  ];
 
   return (
     <section className='products-section'>
@@ -31,7 +53,7 @@ const products = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default products
+export default products;
