@@ -1,21 +1,17 @@
 .carousel-root {
-  position: relative;
   width: 100%;
   height: 430px;
   min-height: 420px;
   overflow: hidden;
-  isolation: isolate;
 }
 
 .carousel-track {
   display: flex;
   width: 100%;
-  height: 100%;
   min-height: 100%;
   align-items: center;
   transform-style: preserve-3d;
   will-change: transform;
-  transition: transform 0.45s ease;
 }
 
 .carousel-item {
@@ -32,9 +28,7 @@
   background-color: transparent;
   overflow: hidden;
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.32s ease;
+  transition: transform 0.30s ease, box-shadow 0.32s ease;
 }
 
 .carousel-slide-image {
@@ -80,10 +74,7 @@
   border: 1px solid #c62f2f;
   background: rgba(125, 30, 30, 0);
   cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
   padding: 0;
 }
 

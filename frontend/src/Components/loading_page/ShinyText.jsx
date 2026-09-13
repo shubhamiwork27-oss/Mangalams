@@ -7,7 +7,7 @@ import {
   useAnimationFrame,
   useTransform,
 } from "motion/react";
-import "../styles/ShinyText.css";
+import "../../styles/ShinyText.css";
 
 const ShinyText = ({
   text,

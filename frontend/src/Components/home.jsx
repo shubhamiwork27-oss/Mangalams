@@ -1,33 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
 import "../styles/home.css";
+import Image from "next/image";
 import HomeContent from "./home_components/home_content";
 
 import Cart from "../assets/icons/cart.png";
+import Green from "../assets/icons/green.png";
 import More from "../assets/icons/more.png";
 import User from "../assets/icons/user.png";
+import Logo from "../assets/images/M.png";
 
 const Home = () => {
-  const headerRef = useRef(null);
-  const mainRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      [headerRef.current, mainRef.current],
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.1,
-        delay: 0.1,
-      },
-    );
-  }, []);
-
   const categories = [
     "For You",
     "Best Deals",
@@ -47,7 +30,7 @@ const Home = () => {
   return (
     <div className='parenthome'>
       <div className='page-shell'>
-        <header className='home-header' ref={headerRef}>
+        <header className='home-header'>
           <div className='promo-strip' aria-label='announcement bar'>
             <div className='promo-track'>
               <span>
@@ -63,7 +46,13 @@ const Home = () => {
 
           <div className='top-bar'>
             <div className='top-bar-left'>
-              <div className='logo'></div>
+              <Image
+                src={Logo}
+                alt='Mangalams logo'
+                className='logo'
+                width={48}
+                height={48}
+              />
               <h4 className='brand'>Mangalams</h4>
             </div>
             <div className='search-bar'>
@@ -75,22 +64,49 @@ const Home = () => {
             <div className='top-bar-right'>
               <button className='top-action'>
                 <div className='logosp'>
-                  <img src={User} alt='' className='icon' />
+                  <Image
+                    src={User}
+                    alt='Account'
+                    className='icon'
+                    width={24}
+                    height={24}
+                  />
                 </div>
                 <h4>Account</h4>
               </button>
               <button className='top-action'>
                 <div className='logosp'>
-                  <img src={More} alt='' className='icon' />
+                  <Image
+                    src={More}
+                    alt='More options'
+                    className='icon'
+                    width={24}
+                    height={24}
+                  />
                 </div>
                 <h4>More</h4>
               </button>
               <button className='top-action cart'>
                 <div className='logosp'>
-                  <img src={Cart} alt='' className='icon' />
+                  <Image
+                    src={Cart}
+                    alt='Cart'
+                    className='icon'
+                    width={24}
+                    height={24}
+                  />
                 </div>
                 <h4>Cart</h4>
               </button>
+            </div>
+            <div className='top-bar-circle' aria-hidden='true'>
+              <Image
+                src={Green}
+                alt=''
+                width={34}
+                height={34}
+                className='top-bar-circle-icon'
+              />
             </div>
           </div>
 
@@ -105,7 +121,7 @@ const Home = () => {
           </div>
         </header>
 
-        <main className='home-main' ref={mainRef}>
+        <main className='home-main'>
           <HomeContent />
         </main>
 

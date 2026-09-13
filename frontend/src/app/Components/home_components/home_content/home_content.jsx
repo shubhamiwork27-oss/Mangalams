@@ -1,13 +1,46 @@
-"use client";
-
-import "../../styles/home_content.css";
-import Products from "./products";
-import Carousel from "./Carousel";
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import '../../styles/home_content.css'
+import Products from './products'
+import Carousel from './Carousel'
 
 const HomeContent = () => {
+  const heroRef = useRef(null)
+  const featuredRef = useRef(null)
+  const promoRef = useRef(null)
+  const quickLinksRef = useRef(null)
+
+  useEffect(() => {
+    const sections = [heroRef, featuredRef, promoRef, quickLinksRef]
+
+    const handleScroll = () => {
+      sections.forEach((ref) => {
+        if (!ref.current) return
+
+        const rect = ref.current.getBoundingClientRect()
+        const windowHeight = window.innerHeight
+        const isVisible = rect.top < windowHeight && rect.bottom > 0
+
+        if (isVisible) {
+          // Premium parallax calculation
+          const scrollProgress = 1 - (rect.top / windowHeight)
+          const offset = scrollProgress * 40 * 0.05
+          gsap.to(ref.current, {
+            y: offset,
+            duration:1,
+            ease: 'expo.inOut',
+            overwrite: 'auto'
+          })
+        }
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   return (
     <div className='homecontent-inner'>
-      <section className='hero-section'>
+      <section className='hero-section' ref={heroRef}>
         <div className='hero-card hero-primary'>
           <Carousel
             baseWidth={1100}
@@ -20,7 +53,7 @@ const HomeContent = () => {
         </div>
       </section>
 
-      <section className='featured-section'>
+      <section className='featured-section' ref={featuredRef}>
         <div className='featured-head'>
           <div>
             <p className='featured-label'>Still looking for these?</p>
@@ -59,7 +92,7 @@ const HomeContent = () => {
         </div>
       </section>
 
-      <section className='promo-section'>
+      <section className='promo-section' ref={promoRef}>
         <div className='section-header'>
           <div>
             <p className='featured-label'>Fresh arrivals</p>
@@ -92,7 +125,7 @@ const HomeContent = () => {
         </div>
       </section>
 
-      <section className='quick-links'>
+      <section className='quick-links' ref={quickLinksRef}>
         <article className='quick-card'>
           <strong>Top picks</strong>
           <p>Recommended products chosen for your taste.</p>
@@ -124,10 +157,7 @@ const HomeContent = () => {
         <div className='ai-grid'>
           <article className='ai-card'>
             <div className='ai-image'>
-              <img
-                src='https://via.placeholder.com/520x360?text=AI+Pick+1'
-                alt='AI recommended product 1'
-              />
+              <img src='https://via.placeholder.com/520x360?text=AI+Pick+1' alt='AI recommended product 1' />
             </div>
             <div className='ai-info'>
               <h4>Artisan Handbag</h4>
@@ -136,10 +166,7 @@ const HomeContent = () => {
           </article>
           <article className='ai-card'>
             <div className='ai-image'>
-              <img
-                src='https://via.placeholder.com/520x360?text=AI+Pick+2'
-                alt='AI recommended product 2'
-              />
+              <img src='https://via.placeholder.com/520x360?text=AI+Pick+2' alt='AI recommended product 2' />
             </div>
             <div className='ai-info'>
               <h4>Luxury Watch</h4>
@@ -148,10 +175,7 @@ const HomeContent = () => {
           </article>
           <article className='ai-card'>
             <div className='ai-image'>
-              <img
-                src='https://via.placeholder.com/520x360?text=AI+Pick+3'
-                alt='AI recommended product 3'
-              />
+              <img src='https://via.placeholder.com/520x360?text=AI+Pick+3' alt='AI recommended product 3' />
             </div>
             <div className='ai-info'>
               <h4>Festive Jewelry</h4>
@@ -160,8 +184,10 @@ const HomeContent = () => {
           </article>
         </div>
       </section>
-    </div>
-  );
-};
 
-export default HomeContent;
+    
+    </div>
+  )
+}
+
+export default HomeContent

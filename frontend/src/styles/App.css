@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background-color: black;
+  color: white;
+  overflow-x: hidden;
+}
+.loader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  z-index: 9999;
+}
+*::-webkit-scrollbar {
+  background: #fff;
+}
+*::-webkit-scrollbar-thumb {
+  background: #ad0a0ac6;
+  border: 4px solid #fff;
+  cursor: pointer;
+  border-radius: 200px;
+}
+.home {
+  width: 100%;
+  min-height: 100vh;
+  zoom: 0.8;
+}
+.home-content {
+  opacity: 1;
+}

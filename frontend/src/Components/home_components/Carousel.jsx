@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { motion, useMotionValue } from "motion/react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Image1 from "../../assets/images/image1.png";
 import "./Carousel.css";
-import Image1 from "../assets/images/image1.png";
 
 const DEFAULT_ITEMS = [
   {
@@ -33,224 +33,66 @@ const DEFAULT_ITEMS = [
   },
 ];
 
-const DRAG_BUFFER = 64;
-const VELOCITY_THRESHOLD = 380;
-const GAP = 0;
-const SLIDE_TRANSITION = {
-  type: "spring",
-  stiffness: 180,
-  damping: 28,
-  mass: 0.9,
-};
-const DRAG_TRANSITION = { bounceStiffness: 260, bounceDamping: 26 };
-
-function CarouselItem({ item, itemWidth, round, transition }) {
-  return (
-    <motion.div
-      className={`carousel-item ${round ? "round" : ""}`}
-      style={{
-        width: itemWidth,
-        height: round ? itemWidth : "100%",
-        ...(round && { borderRadius: "50%" }),
-      }}
-      transition={transition}>
-      <img
-        src={item.src}
-        alt={item.alt ?? ""}
-        className={`carousel-slide-image ${round ? "round" : ""}`}
-        draggable='false'
-      />
-    </motion.div>
-  );
-}
-
 export default function Carousel({
   items = DEFAULT_ITEMS,
-  baseWidth = 0,
   autoplay = false,
   autoplayDelay = 3000,
   pauseOnHover = false,
   loop = false,
   round = false,
 }) {
-  const containerPadding = 0;
-  const [containerWidth, setContainerWidth] = useState(baseWidth || 0);
-  const itemWidth = Math.max(
-    (containerWidth || baseWidth || 0) - containerPadding * 2,
-    0,
-  );
-  const trackItemOffset = itemWidth + GAP;
-  const itemsForRender = useMemo(() => {
-    if (!loop) return items;
-    if (items.length === 0) return [];
-    return [items[items.length - 1], ...items, items[0]];
-  }, [items, loop]);
-
-  const [position, setPosition] = useState(loop ? 1 : 0);
-  const x = useMotionValue(0);
+  const [position, setPosition] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [isJumping, setIsJumping] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
 
-  const containerRef = useRef(null);
   useEffect(() => {
-    if (pauseOnHover && containerRef.current) {
-      const container = containerRef.current;
-      const handleMouseEnter = () => setIsHovered(true);
-      const handleMouseLeave = () => setIsHovered(false);
-      container.addEventListener("mouseenter", handleMouseEnter);
-      container.addEventListener("mouseleave", handleMouseLeave);
-      return () => {
-        container.removeEventListener("mouseenter", handleMouseEnter);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      };
+    if (!autoplay || items.length < 2 || (pauseOnHover && isHovered)) {
+      return undefined;
     }
-  }, [pauseOnHover]);
-
-  useEffect(() => {
-    if (!containerRef.current) return undefined;
-    const updateWidth = () => {
-      setContainerWidth(containerRef.current?.clientWidth ?? baseWidth);
-    };
-    updateWidth();
-    const resizeObserver = new ResizeObserver(() => updateWidth());
-    resizeObserver.observe(containerRef.current);
-    return () => resizeObserver.disconnect();
-  }, [baseWidth]);
-
-  useEffect(() => {
-    if (!autoplay || itemsForRender.length <= 1) return undefined;
-    if (pauseOnHover && isHovered) return undefined;
 
     const timer = setInterval(() => {
-      setPosition((prev) => Math.min(prev + 1, itemsForRender.length - 1));
+      setPosition((current) => {
+        const next = current + 1;
+        return loop ? next % items.length : Math.min(next, items.length - 1);
+      });
     }, autoplayDelay);
 
     return () => clearInterval(timer);
-  }, [autoplay, autoplayDelay, isHovered, pauseOnHover, itemsForRender.length]);
+  }, [autoplay, autoplayDelay, isHovered, items.length, loop, pauseOnHover]);
 
-  useEffect(() => {
-    const startingPosition = loop ? 1 : 0;
-    setPosition(startingPosition);
-    x.set(-startingPosition * trackItemOffset);
-  }, [items.length, loop, trackItemOffset, x]);
+  if (!items.length) return null;
 
-  useEffect(() => {
-    if (!loop && position > itemsForRender.length - 1) {
-      setPosition(Math.max(0, itemsForRender.length - 1));
-    }
-  }, [itemsForRender.length, loop, position]);
-
-  const effectiveTransition = isJumping ? { duration: 0 } : SLIDE_TRANSITION;
-
-  const handleAnimationStart = () => {
-    setIsAnimating(true);
-  };
-
-  const handleAnimationComplete = () => {
-    if (!loop || itemsForRender.length <= 1) {
-      setIsAnimating(false);
-      return;
-    }
-    const lastCloneIndex = itemsForRender.length - 1;
-
-    if (position === lastCloneIndex) {
-      setIsJumping(true);
-      const target = 1;
-      setPosition(target);
-      x.set(-target * trackItemOffset);
-      requestAnimationFrame(() => {
-        setIsJumping(false);
-        setIsAnimating(false);
-      });
-      return;
-    }
-
-    if (position === 0) {
-      setIsJumping(true);
-      const target = items.length;
-      setPosition(target);
-      x.set(-target * trackItemOffset);
-      requestAnimationFrame(() => {
-        setIsJumping(false);
-        setIsAnimating(false);
-      });
-      return;
-    }
-
-    setIsAnimating(false);
-  };
-
-  const handleDragEnd = (_, info) => {
-    const { offset, velocity } = info;
-    const direction =
-      offset.x < -DRAG_BUFFER || velocity.x < -VELOCITY_THRESHOLD
-        ? 2
-        : offset.x > DRAG_BUFFER || velocity.x > VELOCITY_THRESHOLD
-          ? -1
-          : 0;
-
-    if (direction === 0) return;
-
-    setPosition((prev) => {
-      const next = prev + direction;
-      const max = itemsForRender.length - 1;
-      return Math.max(0, Math.min(next, max));
-    });
-  };
-
-  const dragProps = loop
-    ? {}
-    : {
-        dragConstraints: {
-          left: -trackItemOffset * Math.max(itemsForRender.length - 1, 0),
-          right: 0,
-        },
-      };
-
-  const activeIndex = loop
-    ? (position - 1 + items.length) % items.length
-    : Math.min(position, items.length - 1);
+  const activePosition = Math.min(position, items.length - 1);
 
   return (
-    <div ref={containerRef} className={`carousel-root ${round ? "round" : ""}`}>
-      <motion.div
+    <div
+      className={`carousel-root ${round ? "round" : ""}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
+      <div
         className='carousel-track'
-        drag={isAnimating ? false : "x"}
-        {...dragProps}
-        dragElastic={0.12}
-        dragMomentum={false}
-        dragTransition={DRAG_TRANSITION}
-        whileTap={{ cursor: "grabbing" }}
-        style={{
-          gap: `${GAP}px`,
-          x,
-          height: "100%",
-        }}
-        onDragEnd={handleDragEnd}
-        animate={{ x: -(position * trackItemOffset) }}
-        transition={effectiveTransition}
-        onAnimationStart={handleAnimationStart}
-        onAnimationComplete={handleAnimationComplete}>
-        {itemsForRender.map((item, index) => (
-          <CarouselItem
-            key={`${item?.id ?? index}-${index}`}
-            item={item}
-            itemWidth={itemWidth}
-            round={round}
-            transition={effectiveTransition}
-          />
+        style={{ transform: `translateX(-${activePosition * 100}%)` }}>
+        {items.map((item, index) => (
+          <div
+            className={`carousel-item ${round ? "round" : ""}`}
+            key={`${item.id}-${index}`}>
+            <Image
+              src={item.src}
+              alt={item.alt ?? ""}
+              className='carousel-slide-image'
+              fill
+              sizes='100vw'
+            />
+          </div>
         ))}
-      </motion.div>
-
+      </div>
       <div className='carousel-dots-wrapper'>
         <div className='carousel-dots'>
-          {items.map((_, index) => (
+          {items.map((item, index) => (
             <button
-              key={index}
+              key={`${item.id}-dot`}
               type='button'
-              className={`carousel-dot ${activeIndex === index ? "active" : ""}`}
-              onClick={() => setPosition(loop ? index + 1 : index)}
+              className={`carousel-dot ${activePosition === index ? "active" : ""}`}
+              onClick={() => setPosition(index)}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
