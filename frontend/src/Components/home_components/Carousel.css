@@ -100,6 +100,24 @@
   outline-offset: 2px;
 }
 
+.carousel-slide-image {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-dots-wrapper {
+  background: rgba(247, 241, 232, 0.92);
+  box-shadow: 0 8px 18px rgba(74, 23, 29, 0.12);
+}
+
+.carousel-dot {
+  border-color: #b8322d;
+}
+
+.carousel-dot.active {
+  background: #b8322d;
+  border-color: #f7f1e8;
+}
+
 @media (max-width: 900px) {
   .carousel-root {
     min-height: 320px;

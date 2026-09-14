@@ -15,11 +15,11 @@
   padding: 2rem;
   overflow: hidden;
   box-sizing: border-box;
-  color: maroon;
+  color: #4a171d;
   font-family: "Regular";
   position: relative;
   animation: colors 6s ease-in-out infinite alternate;
-  background: linear-gradient(to bottom right, #ffb9dc, #ffece4, #fef4e8);
+  background: linear-gradient(135deg, #f7f1e8, #e9ded0, #c98f88);
   background-size: 200% 200%;
 }
 @keyframes colors {
@@ -36,7 +36,7 @@
 .loader-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #2b0202, #6d0606);
+  background: linear-gradient(135deg, #4a171d, #b8322d);
   z-index: 10;
   transform: translateY(100%);
 }
@@ -44,7 +44,7 @@
 .transition-overlay {
   position: absolute;
   inset: 0;
-  background: #000000;
+  background: #4a171d;
   opacity: 0;
   z-index: 5;
   pointer-events: none;
@@ -66,8 +66,8 @@
   margin-bottom: 0.8rem;
   border-radius: 50%;
   overflow: hidden;
-  background: #ffffff76;
-  box-shadow: 0 16px 45px rgba(139, 23, 23, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 16px 45px rgba(74, 23, 29, 0.18);
 }
 
 .landing-logo {
@@ -80,7 +80,7 @@
 .line {
   width: 50vw;
   height: 2px;
-  background: rgba(164, 6, 6, 0.18);
+  background: rgba(74, 23, 29, 0.18);
   border-radius: 999px;
   display: flex;
   align-items: center;
@@ -94,8 +94,8 @@
 .fill {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ffd7ce00 0%, #b10707 100%);
-  box-shadow: 0 0 16px #b1070733;
+  background: linear-gradient(90deg, #c98f8800 0%, #b8322d 100%);
+  box-shadow: 0 0 16px rgba(184, 50, 45, 0.2);
   position: absolute;
   left: 0;
   top: 0;
@@ -110,7 +110,7 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: clamp(1.4rem, 3vw, 2.2rem);
-  color: #9e0202;
+  color: #4a171d;
   z-index: 3;
   pointer-events: none;
 }

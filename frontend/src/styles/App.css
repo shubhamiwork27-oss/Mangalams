@@ -9,8 +9,8 @@ body {
   width: 100%;
 }
 body {
-  background-color: black;
-  color: white;
+  background-color: #f7f1e8;
+  color: #1b1a18;
   overflow-x: hidden;
 }
 .loader {
@@ -23,18 +23,18 @@ body {
   z-index: 9999;
 }
 *::-webkit-scrollbar {
-  background: #fff;
+  width: 10px;
+  background: #e9ded0;
 }
 *::-webkit-scrollbar-thumb {
-  background: #ad0a0ac6;
-  border: 4px solid #fff;
+  background: #4a171d;
+  border: 3px solid #e9ded0;
   cursor: pointer;
   border-radius: 200px;
 }
 .home {
   width: 100%;
   min-height: 100vh;
-  zoom: 0.8;
 }
 .home-content {
   opacity: 1;

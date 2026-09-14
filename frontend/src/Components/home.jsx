@@ -2,6 +2,7 @@
 
 import "../styles/home.css";
 import Image from "next/image";
+import Link from "next/link";
 import HomeContent from "./home_components/home_content";
 
 import Cart from "../assets/icons/cart.png";
@@ -23,8 +24,6 @@ const Home = () => {
     "Kids",
     "Celebrations",
     "Gifts",
-    "Accessories",
-    "Picks",
   ];
 
   return (
@@ -34,11 +33,11 @@ const Home = () => {
           <div className='promo-strip' aria-label='announcement bar'>
             <div className='promo-track'>
               <span>
-                Free shipping on orders above ₹999 • New arrivals every week •
+                Free shipping on orders above ₹399 • New arrivals every week •
                 Festive collections now live
               </span>
               <span>
-                Free shipping on orders above ₹999 • New arrivals every week •
+                Free shipping on orders above ₹399 • New arrivals every week •
                 Festive collections now live
               </span>
             </div>
@@ -62,7 +61,7 @@ const Home = () => {
               />
             </div>
             <div className='top-bar-right'>
-              <button className='top-action'>
+              <Link className='top-action' href='/accounts'>
                 <div className='logosp'>
                   <Image
                     src={User}
@@ -73,7 +72,7 @@ const Home = () => {
                   />
                 </div>
                 <h4>Account</h4>
-              </button>
+              </Link>
               <button className='top-action'>
                 <div className='logosp'>
                   <Image
