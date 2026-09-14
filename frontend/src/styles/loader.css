@@ -50,12 +50,41 @@
   pointer-events: none;
 }
 
+/* ── Shiny text ───────────────────────────────────── */
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
 .loading-text {
   display: inline-block;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-style: italic;
   text-align: center;
   margin-bottom: 1rem;
+
+  /* shine gradient: base maroon → gold highlight → base maroon */
+  background: linear-gradient(
+    120deg,
+    #4a171d 0%,
+    #4a171d 30%,
+    #f5c97a 45%,
+    #fff8ec 50%,
+    #f5c97a 55%,
+    #4a171d 70%,
+    #4a171d 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  animation: shine 3.6s linear infinite;
 }
 
 .landing-logo-frame {

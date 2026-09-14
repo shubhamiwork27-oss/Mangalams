@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import "../styles/home.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +13,35 @@ import User from "../assets/icons/user.png";
 import Logo from "../assets/images/M.png";
 
 const Home = () => {
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const updateCartCount = () => {
+      try {
+        const stored = localStorage.getItem("mangalams-cart");
+        if (stored) {
+          const items = JSON.parse(stored);
+          if (Array.isArray(items)) {
+            const count = items.reduce(
+              (acc, item) => acc + (item.quantity || 1),
+              0,
+            );
+            setCartCount(count);
+            return;
+          }
+        }
+      } catch {
+        setCartCount(0);
+      }
+      setCartCount(0);
+    };
+
+    updateCartCount();
+
+    window.addEventListener("storage", updateCartCount);
+    return () => window.removeEventListener("storage", updateCartCount);
+  }, []);
+
   const categories = [
     "For You",
     "Best Deals",
@@ -24,6 +54,7 @@ const Home = () => {
     "Kids",
     "Celebrations",
     "Gifts",
+    "Recycle",
   ];
 
   return (
@@ -32,6 +63,10 @@ const Home = () => {
         <header className='home-header'>
           <div className='promo-strip' aria-label='announcement bar'>
             <div className='promo-track'>
+              <span>
+                Free shipping on orders above ₹399 • New arrivals every week •
+                Festive collections now live
+              </span>
               <span>
                 Free shipping on orders above ₹399 • New arrivals every week •
                 Festive collections now live
@@ -49,8 +84,8 @@ const Home = () => {
                 src={Logo}
                 alt='Mangalams logo'
                 className='logo'
-                width={48}
-                height={48}
+                width={50}
+                height={50}
               />
               <h4 className='brand'>Mangalams</h4>
             </div>
@@ -85,7 +120,10 @@ const Home = () => {
                 </div>
                 <h4>More</h4>
               </button>
-              <button className='top-action cart'>
+              <Link
+                className='top-action cart'
+                href='/cart'
+                data-count={cartCount}>
                 <div className='logosp'>
                   <Image
                     src={Cart}
@@ -96,16 +134,7 @@ const Home = () => {
                   />
                 </div>
                 <h4>Cart</h4>
-              </button>
-            </div>
-            <div className='top-bar-circle' aria-hidden='true'>
-              <Image
-                src={Green}
-                alt=''
-                width={34}
-                height={34}
-                className='top-bar-circle-icon'
-              />
+              </Link>
             </div>
           </div>
 
