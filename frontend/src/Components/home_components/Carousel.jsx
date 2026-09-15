@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Image1 from "../../assets/images/image1.png";
+import Image1 from "../../app/assets/images/image1.png";
 import "./Carousel.css";
 
 const DEFAULT_ITEMS = [

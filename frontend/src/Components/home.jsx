@@ -6,11 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import HomeContent from "./home_components/home_content";
 
-import Cart from "../assets/icons/cart.png";
-import Green from "../assets/icons/green.png";
-import More from "../assets/icons/more.png";
-import User from "../assets/icons/user.png";
-import Logo from "../assets/images/M.png";
+import Cart from "../app/assets/icons/cart.png";
+import Green from "../app/assets/icons/green.png";
+import More from "../app/assets/icons/more.png";
+import User from "../app/assets/icons/user.png";
+import Logo from "../app/assets/images/M.png";
 
 const Home = () => {
   const [cartCount, setCartCount] = useState(0);

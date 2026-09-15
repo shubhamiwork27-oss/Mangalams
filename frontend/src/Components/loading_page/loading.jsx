@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import "../../styles/loader.css";
-import logo from "../../assets/images/M.png";
+import logo from "../../app/assets/images/M.png";
 
 const Loading = ({ onLoaded }) => {
   const [percent, setPercent] = useState(0);

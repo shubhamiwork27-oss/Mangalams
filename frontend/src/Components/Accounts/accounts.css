@@ -1,0 +1,757 @@
+@font-face {
+  font-family: "Regular";
+  src: url("/D:\Code\fullstack\Mangalams\Frontend\src\assets\fonts\Shilmaz-Regular.otf")
+    format("opentype");
+}
+* {
+  box-sizing: border-box;
+}
+
+.mangalams-account {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.75fr);
+  overflow: hidden;
+
+  background: #f5f1e8;
+  color: #243128;
+
+  font-family: "DM Sans", sans-serif;
+}
+
+.home-link {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid rgba(36, 49, 40, 0.2);
+  border-radius: 999px;
+  background: rgba(245, 241, 232, 0.9);
+  color: #243128;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.home-link:hover,
+.home-link:focus-visible {
+  border-color: #344c38;
+  background: #fffdf8;
+  transform: translateY(-1px);
+}
+
+.home-link span:first-child {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.mangalams-account::-webkit-scrollbar {
+  display: none;
+}
+
+.mangalams-account {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* =========================
+   LEFT STORY
+========================= */
+
+.account-story {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: clamp(24px, 4vw, 48px);
+  color: #f6f1e7;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffd7d7bc,
+      #7dff8f82
+    );
+
+  background-size: cover;
+  background-position: center;
+}
+
+.story-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(245, 206, 212, 0.28),
+      transparent 35%
+    ),
+    linear-gradient(180deg, rgba(92, 63, 60, 0.1), rgba(31, 43, 33, 0.72));
+}
+
+.story-content,
+.story-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+.brand-mark {
+  font-family: "Regular";
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+}
+
+.story-label {
+  display: inline-block;
+  margin-bottom: 40px;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+
+  opacity: 0.78;
+}
+
+.story-content h1 {
+  padding-top: 10%;
+  max-width: 510px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(52px, 6vw, 92px);
+  line-height: 0.9;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.story-content h1 em {
+  color: #ffaa4f;
+  font-style: italic;
+}
+
+.story-description {
+  max-width: 470px;
+  margin: 20px 0 45px;
+  color: rgba(246, 241, 231, 0.84);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.story-points {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  max-width: 390px;
+}
+
+.story-point {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid rgba(246, 241, 231, 0.2);
+}
+
+.story-point span {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  opacity: 0.5;
+}
+
+.story-point p {
+  font-size: 13px;
+  color: rgba(246, 241, 231, 0.88);
+}
+
+.story-bottom {
+  display: flex;
+  gap: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(246, 241, 231, 0.2);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  opacity: 0.62;
+}
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+.account-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  padding: clamp(24px, 5vh, 60px) clamp(24px, 8vw, 8vw);
+
+  background: #f5f1e8;
+}
+
+.account-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.account-panel {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.account-container {
+  width: 100%;
+  max-width: 470px;
+  margin-block: auto;
+}
+
+.mobile-brand {
+  display: none;
+}
+
+.account-header {
+  margin-bottom: 26px;
+  animation: account-content-in 0.28s ease both;
+}
+
+.account-header h2 {
+  margin: 0;
+
+  color: #243128;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.account-header p {
+  max-width: 390px;
+  margin: 12px 0 0;
+
+  color: #687266;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.account-tabs {
+  display: flex;
+  gap: 28px;
+
+  margin-bottom: 26px;
+
+  border-bottom: 1px solid #d8d1c4;
+}
+
+.account-tabs button {
+  position: relative;
+
+  padding: 0 0 14px;
+
+  border: 0;
+  background: transparent;
+
+  color: #9a9b92;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.account-tabs button::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  width: 0;
+  height: 2px;
+
+  background: #344c38;
+
+  transition: width 0.25s ease;
+}
+
+.account-tabs button.active {
+  color: #243128;
+}
+
+.account-tabs button.active::after {
+  width: 100%;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: account-content-in 0.34s ease both;
+}
+
+.is-signup .account-form {
+  gap: 12px;
+}
+
+.is-signup .form-field {
+  gap: 7px;
+}
+
+@keyframes account-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mangalams visual system */
+.mangalams-account {
+  background: #f7f1e8;
+  color: #1b1a18;
+}
+
+
+.story-overlay {
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(244, 198, 201, 0.22),
+      transparent 35%
+    ),
+    linear-gradient(180deg, rgba(88, 68, 65, 0.08), rgba(28, 40, 31, 0.72));
+}
+
+.story-content h1 em {
+  color: #f0c588;
+}
+
+.account-panel {
+  background: #f7f1e8;
+}
+
+.account-header h2 {
+  color: #4a171d;
+}
+
+.account-header p,
+.account-switch,
+.form-field label,
+.forgot-password {
+  color: #6b5950;
+}
+
+.account-tabs {
+  border-color: rgba(74, 23, 29, 0.2);
+}
+
+.account-tabs button.active {
+  color: #4a171d;
+}
+
+.account-tabs button::after {
+  background: #b8322d;
+}
+
+.form-field input,
+.password-wrapper {
+  border-color: rgba(74, 23, 29, 0.24);
+}
+
+.form-field input:focus,
+.password-wrapper:focus-within {
+  border-color: #b8322d;
+}
+
+.password-toggle,
+.forgot-password,
+.account-switch button {
+  color: #b8322d;
+}
+
+.account-submit {
+  border-color: #b8322d;
+  background: #b8322d;
+  box-shadow: 0 10px 24px rgba(184, 50, 45, 0.14);
+}
+
+.account-submit:hover {
+  background: #4a171d;
+}
+
+.social-action {
+  border-color: rgba(74, 23, 29, 0.22);
+  background: #fff;
+}
+
+.social-action:hover,
+.social-action:focus-visible {
+  border-color: #b8322d;
+}
+
+.account-message.success {
+  background: rgba(201, 143, 136, 0.24);
+  color: #4a171d;
+}
+
+.account-message.error {
+  background: rgba(198, 90, 58, 0.14);
+  color: #7b2f2b;
+}
+
+.account-switch button:hover {
+  color: #4a171d;
+}
+
+.home-link {
+  border-color: rgba(74, 23, 29, 0.2);
+  background: rgba(247, 241, 232, 0.92);
+  color: #4a171d;
+}
+
+.home-link:hover,
+.home-link:focus-visible {
+  border-color: #b8322d;
+  background: #fff;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form-field label {
+  color: #4d584f;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.form-field input {
+  width: 100%;
+
+  padding: 11px 1px;
+
+  border: 0;
+  border-bottom: 1px solid #c9c3b8;
+  outline: none;
+
+  background: transparent;
+
+  color: #243128;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  transition:
+    border-color 0.25s ease,
+    padding 0.25s ease;
+}
+
+.form-field input::placeholder {
+  color: #aaa89f;
+}
+
+.form-field input:focus {
+  border-color: #344c38;
+}
+
+/* =========================
+   PASSWORD
+========================= */
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid #c9c3b8;
+
+  transition: border-color 0.25s ease;
+}
+
+.password-wrapper:focus-within {
+  border-color: #344c38;
+}
+
+.password-wrapper input {
+  border-bottom: 0;
+}
+
+.password-toggle {
+  flex-shrink: 0;
+
+  padding: 5px 0 5px 12px;
+
+  border: 0;
+  background: transparent;
+
+  color: #71806f;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+
+  cursor: pointer;
+}
+
+/* =========================
+   FORGOT
+========================= */
+
+.forgot-password {
+  align-self: flex-start;
+
+  margin-top: -8px;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: #6d766c;
+
+  font-family: inherit;
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.forgot-password:hover {
+  color: #243128;
+}
+
+/* =========================
+   SUBMIT
+========================= */
+
+.account-submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  margin-top: 4px;
+  padding: 14px 20px;
+
+  border: 1px solid #007b19;
+  border-radius: 10px;
+
+  background: #004816;
+  color: #f7f2e8;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.account-actions {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+}
+
+.social-action {
+  display: grid;
+  width: 50px;
+  min-width: 48px;
+  place-items: center;
+  padding: 0;
+  border: 2px solid #c9c3b8;
+  border-radius: 10px;
+  background: #fdfaf3;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-action:hover,
+.social-action:focus-visible {
+  border-color: #344c38;
+  transform: translateY(-2px);
+}
+
+.social-action img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.account-submit:hover {
+  background: #193620;
+  box-shadow: 0 12px 25px rgba(36, 49, 40, 0.13);
+}
+
+.submit-arrow {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.account-message {
+  margin-top: 18px;
+
+  padding: 12px 14px;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.account-message.success {
+  background: #e8eee4;
+  color: #456047;
+}
+
+.account-message.error {
+  background: #f2e8e1;
+  color: #885b49;
+}
+
+/* =========================
+   SWITCH
+========================= */
+
+.account-switch {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  margin-top: 20px;
+
+  color: #8b8b82;
+
+  font-size: 11px;
+}
+
+.account-switch button {
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  color: #344c38;
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.account-switch button:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .mangalams-account {
+    grid-template-columns: 1fr;
+    height: 100dvh;
+    min-height: 100dvh;
+    overflow: hidden;
+  }
+
+  .account-story {
+    min-height: 38dvh;
+  }
+
+  .account-panel {
+    min-height: 62dvh;
+    height: auto;
+    align-items: flex-start;
+    overflow: hidden;
+    padding: clamp(20px, 4vh, 40px) 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .account-story {
+    display: none;
+  }
+
+  .account-panel {
+    min-height: 100dvh;
+    padding: 24px;
+
+    align-items: flex-start;
+  }
+
+  .account-container {
+    max-width: none;
+    margin-block: 0;
+  }
+
+  .mobile-brand {
+    display: block;
+
+    margin-bottom: 28px;
+  }
+
+  .mobile-brand p {
+    margin: 0;
+
+    color: #344c38;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+  }
+
+  .account-header h2 {
+    font-size: 38px;
+  }
+
+  .account-header {
+    margin-bottom: 22px;
+  }
+
+  .account-tabs {
+    margin-bottom: 22px;
+  }
+}

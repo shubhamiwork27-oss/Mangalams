@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useMotionValue } from "motion/react";
 import "./Carousel.css";
-import Image1 from "../../assets/images/image1.png";
+import Image1 from "../../../assets/images/image1.png";
 
 const DEFAULT_ITEMS = [
   {
