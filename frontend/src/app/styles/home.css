@@ -406,3 +406,346 @@ footer {
     height: 20px;
   }
 }
+
+/* Mangalams visual system */
+.parenthome {
+  background:
+    radial-gradient(
+      circle at 12% 0%,
+      rgba(207, 160, 168, 0.14),
+      transparent 34%
+    ),
+    linear-gradient(180deg, #f9f0ee 0%, #eef5ed 100%);
+}
+
+.page-shell {
+  gap: 1.4rem;
+  padding-top: 1.25rem;
+}
+
+.home-header,
+.page-footer {
+  border: 1px solid rgba(137, 161, 136, 0.25);
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 40px rgba(127, 118, 113, 0.08);
+}
+
+.home-header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.promo-strip {
+  background: linear-gradient(90deg, #ab1c28 0%, #dca0a8 48%, #37613b 100%);
+}
+
+.brand {
+  color: #6f6360;
+}
+
+.top-pill,
+.top-action,
+.category-pill {
+  background: #f8f2ef;
+}
+
+.top-pill:hover,
+.category-pill:hover,
+.top-action:hover {
+  background: #edf5ee;
+  color: #6b7d68;
+}
+
+.top-pill.active,
+.category-pill.active {
+  background: #f7dfe2;
+  border-color: #9bb39d;
+  color: #526857;
+}
+
+.top-action {
+  color: #0c0000;
+}
+
+.top-action.cart::after {
+  background: #ba000c;
+}
+
+.search-input {
+  border: 1px solid rgba(143, 119, 117, 0.25);
+  background: #fff;
+  color: #1b1a18;
+  box-shadow: 0 6px 18px rgba(146, 136, 123, 0.06);
+}
+
+.search-input:focus {
+  border-color: #a9bda4;
+  box-shadow: 0 0 0 3px rgba(145, 180, 156, 0.16);
+}
+
+.search-input::placeholder {
+  color: #8e7d79;
+}
+
+.category-strip {
+  gap: 0.65rem;
+}
+
+.category-strip::-webkit-scrollbar-thumb {
+  background: rgba(74, 23, 29, 0.42);
+}
+
+footer {
+  width: 100%;
+  gap: 4rem;
+}
+
+.footer-inner h4 {
+  color: #4a171d;
+}
+
+.footer-inner p {
+  color: #6b5950;
+}
+
+.footer-inner p strong {
+  color: #4a171d;
+}
+
+.footer-copy {
+  border-color: rgba(74, 23, 29, 0.2);
+  color: #6b5950;
+}
+
+/* =========================================================
+   MORE DROPDOWN MENU
+   ========================================================= */
+.more-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.more-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.more-trigger.active {
+  background: #fbeef0;
+  color: #8e1010;
+}
+
+.more-arrow {
+  font-size: 0.85rem;
+  color: #7e1500;
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  line-height: 1;
+}
+
+.more-arrow.rotated {
+  transform: rotate(180deg);
+}
+
+.more-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: -20px;
+  width: 320px;
+  background: #ffffff;
+  border: 1px solid rgba(178, 11, 11, 0.16);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 40px -10px rgba(120, 20, 20, 0.18), 0 8px 16px -4px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0.85rem;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: moreMenuIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top right;
+}
+
+.more-dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  right: 48px;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-left: 1px solid rgba(178, 11, 11, 0.16);
+  border-top: 1px solid rgba(178, 11, 11, 0.16);
+  transform: rotate(45deg);
+}
+
+@keyframes moreMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.more-dropdown-header {
+  padding: 0.25rem 0.45rem 0.65rem;
+  border-bottom: 1px solid rgba(220, 200, 195, 0.45);
+}
+
+.more-dropdown-eyebrow {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #a41c1c;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.more-dropdown-header h5 {
+  margin: 0;
+  font-size: 0.96rem;
+  color: #3b2220;
+  font-weight: 700;
+}
+
+.more-dropdown-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.more-menu-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.more-group-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8c7674;
+  padding: 0.1rem 0.45rem;
+}
+
+.more-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: #342626;
+  transition: background 0.18s ease, transform 0.15s ease;
+}
+
+.more-menu-item:hover {
+  background: #fdf2f3;
+  transform: translateX(2px);
+}
+
+.more-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f7edea;
+  color: #9b1212;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.more-menu-item:hover .more-item-icon {
+  background: #8e1010;
+  color: #ffffff;
+}
+
+.more-item-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.more-item-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.more-item-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #2b1f1e;
+}
+
+.more-menu-item:hover .more-item-title {
+  color: #8e1010;
+}
+
+.more-item-badge {
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(46, 125, 50, 0.25);
+}
+
+.more-item-sub {
+  font-size: 0.72rem;
+  color: #7a6866;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more-dropdown-footer {
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(220, 200, 195, 0.45);
+}
+
+.more-contact-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.6rem;
+  background: #fbf7f4;
+  border-radius: 0.65rem;
+  font-size: 0.73rem;
+  color: #6b5855;
+}
+
+.more-call-btn {
+  font-weight: 700;
+  color: #8e1010;
+  text-decoration: none;
+}
+
+.more-call-btn:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .more-dropdown-menu {
+    right: -70px;
+    width: min(310px, 92vw);
+  }
+  .more-dropdown-menu::before {
+    right: 90px;
+  }
+}
+

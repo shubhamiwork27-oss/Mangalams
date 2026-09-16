@@ -1,4 +1,5 @@
-import Cart from "../../components/cart_page/cart";
+import Cart from "../Components/cart_page/cart";
+
 
 export const metadata = {
   title: "Shopping Cart | Mangalams",
