@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, useMotionValue } from "motion/react";
 import Image from "next/image";
 import Image1 from "../../app/assets/images/image1.png";
 import "./Carousel.css";
@@ -32,6 +33,17 @@ const DEFAULT_ITEMS = [
     alt: "Hero slide 5",
   },
 ];
+
+const DRAG_BUFFER = 64;
+const VELOCITY_THRESHOLD = 380;
+const GAP = 0;
+const SLIDE_TRANSITION = {
+  type: "spring",
+  stiffness: 180,
+  damping: 28,
+  mass: 0.9,
+};
+const DRAG_TRANSITION = { bounceStiffness: 260, bounceDamping: 26 };
 
 export default function Carousel({
   items = DEFAULT_ITEMS,
